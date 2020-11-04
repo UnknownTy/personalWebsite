@@ -43,7 +43,6 @@ div.course{
     grid-template-rows: 2fr 1fr;
     column-gap: 1em;
     padding: 5px;
-    border: solid;
     grid-template-areas: 
     "name info"
     "time info";
@@ -54,10 +53,7 @@ div.course{
 
 .course-time{
     grid-area: time;
-    align-self: flex-start;
-    border: solid;
 }
 .course-name{
     grid-area: name;
-    border: solid;
 }
