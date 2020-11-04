@@ -23,7 +23,16 @@ nav{
     border: black solid 2px;
     padding: 5px;
 }
-
+header > nav{
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
+}
+header li{
+    float: left;
+    padding: 0 1em;
+}
 ul{
     list-style: none;
+    padding: 0px;
 }
