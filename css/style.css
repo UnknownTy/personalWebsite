@@ -36,3 +36,28 @@ ul{
     list-style: none;
     padding: 0px;
 }
+
+div.course{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr 1fr;
+    column-gap: 1em;
+    padding: 5px;
+    border: solid;
+    grid-template-areas: 
+    "name info"
+    "time info";
+}
+.course-info{
+    grid-area: info;
+}
+
+.course-time{
+    grid-area: time;
+    align-self: flex-start;
+    border: solid;
+}
+.course-name{
+    grid-area: name;
+    border: solid;
+}
