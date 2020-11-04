@@ -57,3 +57,22 @@ div.course{
 .course-name{
     grid-area: name;
 }
+
+@media screen and (max-width: 600px){
+    div.course{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows:  1fr 0fr 1fr;
+        column-gap: 1em;
+        padding: 5px;
+        grid-template-areas: 
+        "name"
+        "time"
+        "info";
+    }
+    header li{
+        clear: both;
+        padding: 1px 1em;
+    }
+
+}
