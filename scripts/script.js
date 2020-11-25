@@ -44,8 +44,8 @@ function findCourse(courseList){
             console.log(`Yes, I am taking the course: ${_item.code}`);
             let element = document.querySelectorAll('.course')
             for(courses of element){
-                    let codeContent = courses.children[0].textContent.trim()
-                    if (codeContent === _item.code){
+                    let courseContent = courses.children[0].textContent.trim()
+                    if (courseContent === _item.code){
                         courses.style.backgroundColor = "#39FF14"
                     }
             } 
@@ -57,10 +57,17 @@ function findCourse(courseList){
     if (!found){
         courseList.push({
             code: `ACIT ${inputCode}`,
-            date: null,
+            date: "Fall 2020",
         })
+        let element = document.querySelectorAll('.course')
+        element[element.length - 1].insertAdjacentHTML("afterend",`\
+        <hr>
+        <div class="course">
+        <h3 class="course-name">${courseList[courseList.length-1].code}</h3>
+        <p class="course-info">N/A</p>
+        <p class="course-time">${courseList[courseList.length-1].date}</p>
+        </div> `)
         console.log(`ACIT ${inputCode} added to course list.`);
-        console.log(courseList)
     }
 }
 
