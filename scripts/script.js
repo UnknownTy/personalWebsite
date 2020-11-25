@@ -22,12 +22,10 @@ function createCourseArray() {
     return courseList
 }
 
-const courseList = createCourseArray()
 
 function findCourse(courseList){
     let inputCode = "wrong" ;
     let promptMessage = "Enter a 4-digit code";
-    
     do {
 
         inputCode = window.prompt(promptMessage);
@@ -43,7 +41,14 @@ function findCourse(courseList){
     for (var _item of courseList){
         console.log(_item);
         if (_item.code.split(' ')[1] === inputCode){
-            console.log(`Yes, I am taking the course: ${_item.code} - ${_item.name}`);
+            console.log(`Yes, I am taking the course: ${_item.code}`);
+            let element = document.querySelectorAll('.course')
+            for(courses of element){
+                    let codeContent = courses.children[0].textContent.trim()
+                    if (codeContent === _item.code){
+                        courses.style.backgroundColor = "#39FF14"
+                    }
+            } 
             found = true;
             break; // Break out as we know that we have found the value.
         }
@@ -52,7 +57,6 @@ function findCourse(courseList){
     if (!found){
         courseList.push({
             code: `ACIT ${inputCode}`,
-            name: null,
             date: null,
         })
         console.log(`ACIT ${inputCode} added to course list.`);
@@ -60,4 +64,6 @@ function findCourse(courseList){
     }
 }
 
+
+const courseList = createCourseArray()
 findCourse(courseList)
