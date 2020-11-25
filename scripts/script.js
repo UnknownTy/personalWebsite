@@ -1,18 +1,29 @@
-const courseList = [
-    {
-        code: "ACIT 1620",
-        name: "Web Fundamental Technologies",
-    },
-    {
-        code: "ACIT 1420",
-        name: "Intro to Systems Admin",
-    },
-    {
-        code: "ACIT 1630",
-        name: "Database Systems",
-    }
-];
+function createCourseArray() {
+    let courses = document.getElementsByClassName('course')
+    let courseList = []
+    for (var course of courses){
 
+        for (var info of course.children){
+            
+            if (info.className === 'course-name'){
+                var fullName = info.textContent.trim().split(" - ")
+                console.log(fullName)
+            } else if (info.className === 'course-time'){
+                var finishDate = info.textContent.trim()
+                console.log(finishDate)
+            }
+        }
+        var courseFull = { //All of the info on a single course
+            code: fullName[0],
+            name: fullName[1],
+            date: finishDate,
+        }
+        courseList.push(courseFull) // Add the full set of info to the array
+    }
+    return courseList
+}
+
+const courseList = createCourseArray()
 let inputCode = "" ;
 let promptMessage = "Enter a 4-digit code";
 
